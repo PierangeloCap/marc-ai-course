@@ -1,5 +1,6 @@
 import jmarc.MARCNativeWrapper;
 import jmarc.solving.MARCSequentialSolver;
+import jmarc.solving.MARCSolverMonitor;
 import jmarc.solving.MARCFirstChoiceHillClimbing;
 import jmarc.modeling.MARCSolution;
 import jmarc.solving.MARCSteepestDescent;
@@ -14,6 +15,11 @@ public class Main {
     public static void main(String[] args) {
 
         Integer dim = 128;
+        int maxIdle = 100;
+        int restarts = 4;
+
+        System.out.println("JMARC usage example: " + dim + "-Queens");
+
         ArrayList<Integer> initBoard = new ArrayList<>();
         for (int i = 0; i < dim; i++) initBoard.add(0);
 
@@ -31,20 +37,24 @@ public class Main {
         }
 
         MARCSequentialSolver solver = new MARCSequentialSolver(problem);
-        MARCSteepestDescent sd = new MARCSteepestDescent();
+        MARCSolverMonitor mon = new MARCSolverMonitor("Sequential");
+        solver.setMonitor(mon);
 
-        solver.scheduleAlgorithm(sd, 1, true);
+        MARCFirstChoiceHillClimbing fchc = new MARCFirstChoiceHillClimbing(maxIdle);
+        solver.scheduleAlgorithm(fchc, restarts, true);
+
+        System.out.println("Running First Choice Hill Climbing for " + restarts + " restarts");
 
         MARCSolution sol = solver.solve();
 
         ArrayList<Integer> boardSol = ((QueensBoard)sol.getStateSolution()).getValue();
 
-        System.out.print("[");
+        System.out.print("Solution state:\n[");
         for (int i = 0; i < dim; i++) System.out.print(boardSol.get(i) + ", ");
-        System.out.println("]");
+        System.out.print("]\nWith value: ");
 
         System.out.println(problem.heuristic(sol.getStateSolution()));
-
+        System.out.print("\n");
 
     }
 

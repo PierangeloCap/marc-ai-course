@@ -14,13 +14,11 @@ public /*abstract*/ class MARCNativeWrapper implements AutoCloseable {
     private Cleaner.Cleanable cleanTarget;
 
 
-    private static final String libraryName = "JMARCNativeInterface";
+    private static final String libraryName = "JMARCNative";
 
     private static final Cleaner resourceHandler = Cleaner.create();
 
     private static native void cleanUp(long handle);
-
-    //public static HashSet<WeakReference<MARCNativeWrapper>> instances = new HashSet<>(); //only for debug
 
 
     private void clearDependencies() {

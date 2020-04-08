@@ -21,7 +21,7 @@ int main(int argc, char** argv) {
     const double alpha = 0.65;
     const int T0 = 100;
     const int D = 0.01;
-    const unsigned int timeout = 1;
+    const unsigned int timeout = 5;
     const unsigned int maxIdle = 60;
 
     std::cout << "MARC usage example: " << N << "-Queens" << std::endl;
@@ -77,7 +77,7 @@ int main(int argc, char** argv) {
         solver->scheduleAlgorithm(simAnnInvLog, timeout, true);
         solver->scheduleAlgorithm(simAnnExp, timeout, true);
         solver->scheduleAlgorithm(simAnnGeom, timeout, true);
-        solver->scheduleAlgorithm(steepest, timeout, true);
+        solver->scheduleAlgorithm(steepest, 1, true);
 
 
         std::shared_ptr<Modeling::Solution> sol;
@@ -102,7 +102,7 @@ int main(int argc, char** argv) {
         auto wbSolutionState = std::dynamic_pointer_cast<QueensBoard>(solutionState.lock());
         wbSolutionState->print();
 
-        std::cout << "With value: " << problem->heuristic(wbSolutionState) << std::endl;
+        std::cout << "With value: " << problem->heuristic(wbSolutionState) << std::endl << std::endl;
         
     }
 

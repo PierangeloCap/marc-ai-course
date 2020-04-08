@@ -14,6 +14,7 @@ JMARC_EXAMPLE=${JMARC_ROOT}/examples/NQueens
 ROOT_BUILD=${ROOT}/build
 MARC_BUILD=${ROOT_BUILD}/marc
 JMARC_BUILD=${ROOT_BUILD}/jmarc
+JMARC_NATIVE_BUILD=${ROOT_BUILD}/jmarc_native
 
 ROOT_TEST=${ROOT_BUILD}/test
 MARC_TEST=${ROOT_TEST}/marc
@@ -34,3 +35,11 @@ cd ${MARC_TEST}
 ${CMAKE} -DCMAKE_BUILD_TYPE=Release -DMARC_BUILD_DIR:STRING=${MARC_BUILD} -DMARC_HOME:STRING=${MARC_ROOT} -G "${GENERATOR}" ${MARC_EXAMPLE}
 make
 ./MARCNQueens
+
+
+# Test JMARC
+
+JTARGET=$(find ${JMARC_EXAMPLE} -wholename *.java)
+${JHOME}/bin/javac -cp ${JMARC_BUILD} -d ${JMARC_TEST} ${JTARGET}
+cd ${JMARC_TEST}
+${JHOME}/bin/java -Djava.library.path=${JMARC_NATIVE_BUILD} -classpath ":${JMARC_TEST}:${JMARC_BUILD}" Main
