@@ -1,0 +1,1 @@
+set(JNI "${JHOME}/include" "${JHOME}/include/linux")
