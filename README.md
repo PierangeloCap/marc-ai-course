@@ -37,6 +37,8 @@ To run a JMARC model, pass the following options to the JVM:
 
 If you're having trouble with this, I advice you to look into the `test.sh` script: it contains a full example of compilation and execution of both MARC and JMARC models.
 
+Running MARC models requires no special care: see, again, `test.sh` and `marc/examples/nqueens/Main.cpp` for an example on how to use MARC in a C++ program.
+
 ## Authors contacts ##
 
 * D. Baieri (<baieri.1746117@studenti.uniroma1.it>) - feel free to e-mail me for any MARC-related question
