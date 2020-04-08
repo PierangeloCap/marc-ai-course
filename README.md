@@ -1,6 +1,7 @@
 # MARC: Student version #
 
 In this repository you will find all you need to get started modeling and solving combinatorial problems with the MARC framework and its Java interface JMARC. 
+
 This release is thought for students of the Artificial Intelligence course held by Prof. Mancini (Corso di Laurea Triennale in Informatica @ La Sapienza Università di Roma).
 
 ## Setting up ##
@@ -21,6 +22,11 @@ This release is thought for students of the Artificial Intelligence course held 
 	* `build/jmarc` - a directory containing the compiled JMARC code
 	* `build/jmarc_native/libJMARCNative.so` - a shared library allowing to link the JVM and native MARC code
 	
+### Test ###
+
+* Run `test.sh` (writing permissions for the working directory are required)
+* If everything went smoothly, you should get the output to the execution of `marc/examples/nqueens/Main.cpp` and `jmarc/examples/NQueens/Main.java`
+	
 ## Running ##
 
 To run a JMARC model, pass the following options to the JVM:
@@ -28,8 +34,10 @@ To run a JMARC model, pass the following options to the JVM:
 * `-classpath <JMARC_BUILD>`, where `<JMARC_BUILD>` is a directory containing the compiled JMARC code
 * `-Djava.library.path=<JMARC_NATIVE_BUILD>`, where <JMARC_NATIVE_BUILD> is a directory containing `libJMARCNative.so`
 
+If you're having trouble with this, I advice you to look into the `test.sh` script: it contains a full example of compilation and execution of both MARC and JMARC models.
+
 ## Authors contacts ##
 
-* D. Baieri (<baieri.1746117@studenti.uniroma1.it>) - feel free to e-mail me for any framework-related question
+* D. Baieri (<baieri.1746117@studenti.uniroma1.it>) - feel free to e-mail me for any MARC-related question
 * Prof. T. Mancini (<tmancini@di.uniroma1.it>)
 * Dott. M. Esposito (<esposito@di.uniroma1.it>)
