@@ -1,5 +1,5 @@
 #include <cmath>
-#include "InvLogTemperature.h"
+#include "../header/InvLogTemperature.h"
 
 double InvLogTemperature::temperature(const unsigned int step) const {
     return (alpha*T0)/(log(1+step));

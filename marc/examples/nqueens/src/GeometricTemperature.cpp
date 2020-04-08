@@ -1,5 +1,5 @@
 #include <cmath>
-#include "GeometricTemperature.h"
+#include "../header/GeometricTemperature.h"
 
 double GeometricTemperature::temperature(const unsigned int step) const {
     return pow(alpha, step-1)*T0;

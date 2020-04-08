@@ -60,7 +60,7 @@ namespace Solving {
             throw NoSolutionFoundException();
         } 
         if (mon) monitor->end();
-        else return sol;
+        return sol;
     }
 
 }

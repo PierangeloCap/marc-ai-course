@@ -12,6 +12,7 @@
 #include "../../../header/Utils/Exceptions/ImmutablePropertyException.h"
 #include "../../../header/Utils/Exceptions/NoApplicableActionException.h"
 
+
 namespace Solving {
 
     namespace Algorithms {

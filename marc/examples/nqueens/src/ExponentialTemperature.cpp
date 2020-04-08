@@ -1,5 +1,5 @@
 #include <cmath>
-#include "ExponentialTemperature.h"
+#include "../header/ExponentialTemperature.h"
 
 double ExponentialTemperature::temperature(const unsigned int step) const {
     return T0*exp((-alpha)*pow(step-1, (double)1/dim));

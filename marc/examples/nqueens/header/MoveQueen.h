@@ -1,14 +1,15 @@
-#ifndef SWAPVISITS_H
-#define SWAPVISITS_H
+#ifndef MOVEQUEEN_H
+#define MOVEQUEEN_H
 
 #include <Modeling/Action.h>
 
-class SwapVisits : public Modeling::Action {
+
+class MoveQueen : public Modeling::Action {
 
 private:
-    const unsigned int from; // Note 1. Additional Action parameters: need to be grounded to all possible values
+    const unsigned int pos; // Note 1. Additional Action parameters: need to be grounded to all possible values
 
-    const unsigned int to;
+    const unsigned int squares; 
 
 public:
     bool satisfiesPreconditions(const std::shared_ptr<Modeling::State>& s) const override; // Required by inheritance contract
@@ -17,9 +18,9 @@ public:
 
     double cost(const std::shared_ptr<Modeling::State>& s) const override; // Required by inheritance contract
 
-    SwapVisits(unsigned int from, unsigned int to, std::string description);
+    MoveQueen(unsigned int pos, unsigned int squares, std::string description);
 
 };
 
 
-#endif //SWAPVISITS_H
+#endif //MOVEQUEEN_H
