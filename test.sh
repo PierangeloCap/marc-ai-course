@@ -30,16 +30,18 @@ done
 
 
 # Test MARC
-
+echo "Testing MARC..."
 cd ${MARC_TEST}
 ${CMAKE} -DCMAKE_BUILD_TYPE=Release -DMARC_BUILD_DIR:STRING=${MARC_BUILD} -DMARC_HOME:STRING=${MARC_ROOT} -G "${GENERATOR}" ${MARC_EXAMPLE}
 make
-./MARCNQueens
+./MARCNQueens > /dev/null
+[ $? -eq 0 ] && echo "MARC test successful!" || echo "MARC test failed."
 
 
 # Test JMARC
-
+echo "Testing JMARC..."
 JTARGET=$(find ${JMARC_EXAMPLE} -wholename *.java)
 ${JHOME}/bin/javac -cp ${JMARC_BUILD} -d ${JMARC_TEST} ${JTARGET}
 cd ${JMARC_TEST}
-${JHOME}/bin/java -Djava.library.path=${JMARC_NATIVE_BUILD} -classpath ":${JMARC_TEST}:${JMARC_BUILD}" Main
+${JHOME}/bin/java -Djava.library.path=${JMARC_NATIVE_BUILD} -classpath ":${JMARC_TEST}:${JMARC_BUILD}" Main > /dev/null
+[ $? -eq 0 ] && echo "JMARC test successful!" || echo "JMARC test failed."
