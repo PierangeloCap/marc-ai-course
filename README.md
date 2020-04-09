@@ -26,7 +26,7 @@ This release is thought for students of the Artificial Intelligence course held 
 
 * Edit environment variables in `test.sh` to fit your machine configuration
 * Run `test.sh` (writing permissions for the working directory are required)
-* If everything went smoothly, you should get the output to the execution of `marc/examples/nqueens/Main.cpp` and `jmarc/examples/NQueens/Main.java`
+* The program will notify you if something went wrong
 	
 ## Running ##
 
