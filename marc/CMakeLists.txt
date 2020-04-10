@@ -16,7 +16,6 @@ set(HEADERS
         header/Modeling/Problem.h
         header/Modeling/RandomExplorationProblem.h
         header/Solving/SequentialSolver.h
-        header/Solving/ORBSolver.h
         header/Solving/SolverMonitor.h
         header/Solving/MonitorAssoc.h
         header/Solving/Algorithms/SimulatedAnnealing.h
@@ -62,7 +61,6 @@ set(SOURCES
         src/Modeling/Problem.cpp
         src/Modeling/RandomExplorationProblem.cpp
         src/Solving/SequentialSolver.cpp
-        src/Solving/ORBSolver.cpp
         src/Solving/SolverMonitor.cpp
         src/Solving/MonitorAssoc.cpp
         src/Solving/Algorithms/SimulatedAnnealing.cpp

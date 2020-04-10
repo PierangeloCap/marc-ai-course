@@ -35,7 +35,6 @@ add_library(JMARCNative SHARED
     src/jni/jmarc_solving_MARCSequentialSolver.cpp
     src/jni/jmarc_solving_MARCSimulatedAnnealing.cpp
     src/jni/jmarc_solving_MARCSolver.cpp
-    src/jni/jmarc_solving_MARCORBSolver.cpp
     src/jni/jmarc_solving_MARCSolverMonitor.cpp
     src/jni/jmarc_solving_MARCTemperature.cpp
     header/jni/jmarc_MARCNativeWrapper.h
@@ -43,7 +42,6 @@ add_library(JMARCNative SHARED
     header/jni/jmarc_solving_MARCTemperature.h
     header/jni/jmarc_modeling_MARCState.h
     header/jni/jmarc_solving_MARCSimulatedAnnealing.h
-    header/jni/jmarc_solving_MARCORBSolver.h
     header/jni/jmarc_solving_MARCSolverMonitor.h
     header/jni/jmarc_modeling_MARCAction.h
     header/jni/jmarc_modeling_MARCInitStateProblem.h
