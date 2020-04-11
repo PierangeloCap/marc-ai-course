@@ -12,7 +12,6 @@
 #include "../../../header/Utils/Exceptions/ImmutablePropertyException.h"
 #include "../../../header/Utils/Exceptions/NoApplicableActionException.h"
 
-
 namespace Solving {
 
     namespace Algorithms {
@@ -56,10 +55,13 @@ namespace Solving {
             double diff = this->heuristicFunction(candidate) - this->heuristicFunction(current);
             double temp = this->temperature(this->getIterationCounter());
             if (temp == 0) return diff < 0;
-            std::random_device rd;
-            std::mt19937 gen(rd());
-            std::bernoulli_distribution flipCoin(std::exp(-std::abs(diff)/temp));
-            return diff < 0 || flipCoin(gen);
+            else if (diff < 0) return true;
+            else {
+                std::random_device rd;
+                std::mt19937 gen(rd());
+                std::bernoulli_distribution flipCoin(std::exp(-std::abs(diff)/temp));
+                return flipCoin(gen);
+            }
         }
 
         bool SimulatedAnnealing::continueSearch() const {
