@@ -2,7 +2,6 @@ package jmarc.solving;
 
 import jmarc.MARCNativeWrapper;
 
-
 public abstract class MARCTemperature extends MARCNativeWrapper {
 
     protected native long createNativeObject();

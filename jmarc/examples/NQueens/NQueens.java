@@ -2,7 +2,7 @@ import jmarc.modeling.*;
 
 import java.util.Random;
 import java.util.ArrayList;
-
+import java.util.HashSet;
 
 public class NQueens extends MARCInitStateProblem<Integer> implements MARCHeuristicProblem, MARCRandomProblem {
 
@@ -14,11 +14,12 @@ public class NQueens extends MARCInitStateProblem<Integer> implements MARCHeuris
 
     public double heuristic(MARCState s) {
         double res = 0;
-        ArrayList<Integer> board = ((QueensBoard)s).getValue();
+        ArrayList<Integer> board = ((QueensBoard) s).getValue();
 
         for (int i = 0; i < queens; i++) {
-            for (int j = i+1; j < queens; j++) {
-                if (board.get(i).equals(board.get(j)) || (Math.abs(board.get(j) - board.get(i)) == j - i)) res++;
+            for (int j = i + 1; j < queens; j++) {
+                if (board.get(i).equals(board.get(j)) || (Math.abs(board.get(j) - board.get(i)) == j - i))
+                    res++;
             }
         }
 
@@ -26,24 +27,42 @@ public class NQueens extends MARCInitStateProblem<Integer> implements MARCHeuris
 
     }
 
+    // private int countConflicts(int index, int newVal, ArrayList<Integer> board) {
+    // int res = 0;
+    // ArrayList<Integer> sim = new ArrayList<>(board);
+    // sim.set(index, newVal);
+    // for (int i = 0; i < queens; i++) {
+    // for (int j = i + 1; j < queens; j++) {
+    // if (sim.get(i).equals(sim.get(j)) || (Math.abs(sim.get(j) - sim.get(i)) == j
+    // - i))
+    // res++;
+    // }
+    // }
+    // return res;
+    // }
 
-    private int countConflicts(int index, int newVal, ArrayList<Integer> board) {
-        int res = 0;
-        ArrayList<Integer> sim = new ArrayList<>(board);
-        sim.set(index, newVal);
-        for (int i = 0; i < queens; i++) {
-            for (int j = i+1; j < queens; j++) {
-                if (sim.get(i).equals(sim.get(j)) || (Math.abs(sim.get(j) - sim.get(i)) == j - i)) res++;
+    public HashSet<MoveQueen> generateAllActions() {
+        HashSet<MoveQueen> actions = new HashSet<>();
+        int N = this.getDim();
+
+        for (int q = 0; q < N; q++) {
+            for (int m = 1; m < N; m++) {
+
+                // Genera mossa GIÙ (+m)
+                actions.add(new MoveQueen(m, q, this, "Q" + q + " down " + m));
+
+                // Genera mossa SU (-m)
+                actions.add(new MoveQueen(-m, q, this, "Q" + q + " up " + m));
             }
         }
-        return res;
+        return actions;
     }
-
 
     public MARCState getRandomState() {
         Random r = new Random();
         ArrayList<Integer> board = new ArrayList<>();
-        for (int i = 0; i < queens; i++) board.add(r.nextInt(queens));
+        for (int i = 0; i < queens; i++)
+            board.add(r.nextInt(queens));
         return new QueensBoard(this, board);
     }
 
@@ -56,6 +75,4 @@ public class NQueens extends MARCInitStateProblem<Integer> implements MARCHeuris
         this.queens = dim;
     }
 
-
 }
-

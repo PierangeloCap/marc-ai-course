@@ -5,7 +5,7 @@
 CMAKE='cmake' #Note: CMake 3.14.2 required
 GENERATOR="CodeBlocks - Unix Makefiles" #Run `${CMAKE} --help` to list generators available on your machine
 ROOT=$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )
-JHOME=/usr/lib/jvm/jdk-12.0.1
+JHOME=/usr/lib/jvm/java-21-openjdk-amd64
 MARC_ROOT=${ROOT}/marc
 MARC_EXAMPLE=${MARC_ROOT}/examples/nqueens
 JMARC_ROOT=${ROOT}/jmarc

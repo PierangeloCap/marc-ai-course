@@ -34,6 +34,7 @@ To run a JMARC model, pass the following options to the JVM:
 
 * `-classpath <JMARC_BUILD>`, where `<JMARC_BUILD>` is a directory containing the compiled JMARC code
 * `-Djava.library.path=<JMARC_NATIVE_BUILD>`, where <JMARC_NATIVE_BUILD> is a directory containing `libJMARCNative.so`
+* java -Djava.library.path=build/jmarc_native -cp build/test/jmarc:build/jmarc Main
 
 If you're having trouble with this, I advice you to look into the `test.sh` script: it contains a full example of compilation and execution of both MARC and JMARC models.
 
