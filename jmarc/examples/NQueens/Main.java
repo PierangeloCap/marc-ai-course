@@ -19,7 +19,7 @@ public class Main {
     public static void main(String[] args) {
 
         // CONFIGURAZIONE
-        Integer dim = 50;
+        Integer dim = 100;
         AlgorithmType type = AlgorithmType.SIMULATED_ANNEALING;
 
         // Parametri Hill Climbing
@@ -27,9 +27,9 @@ public class Main {
         int hcMaxIdle = 50;
 
         // Parametri Simulated Annealing
-        int saMaxIdle = 10000;
-        double saTemp = 30.0;
-        double saAlpha = 0.98;
+        int saMaxIdle = 50000;
+        double saTemp = 100.0;
+        double saAlpha = 0.99;
 
         // Parametri Steepest Descent
         int sdRestarts = 20;
