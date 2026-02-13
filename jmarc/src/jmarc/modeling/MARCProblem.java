@@ -2,9 +2,6 @@ package jmarc.modeling;
 
 import jmarc.MARCNativeWrapper;
 
-import java.util.HashSet;
-
-
 public abstract class MARCProblem<DimensionType> extends MARCNativeWrapper {
 
     protected native long createNativeObject(DimensionType dim);
