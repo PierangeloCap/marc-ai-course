@@ -37,7 +37,7 @@ public class ProteinState extends MARCGenericState<ArrayList<Integer>> {
             int minX = 0, maxX = 0, minY = 0, maxY = 0;
 
             // Posiziona il primo amminoacido
-            grid.put(x + "," + y, formatAA(sequence.charAt(0), true)); // true = start
+            grid.put(x + "," + y, formatAA(sequence.charAt(0)));
 
             // Calcola le posizioni degli altri
             for (int i = 0; i < moves.size(); i++) {
@@ -53,7 +53,7 @@ public class ProteinState extends MARCGenericState<ArrayList<Integer>> {
 
                 char aa = sequence.charAt(i + 1);
                 boolean isEnd = (i == moves.size() - 1);
-                grid.put(x + "," + y, formatAA(aa, isEnd));
+                grid.put(x + "," + y, formatAA(aa));
             }
 
             // Costruisce la stringa finale
@@ -81,7 +81,7 @@ public class ProteinState extends MARCGenericState<ArrayList<Integer>> {
         }
     }
 
-    private String formatAA(char aa, boolean isSpecial) {
+    private String formatAA(char aa) {
         if (aa == 'H') {
             return "[H]"; // Idrofobico
         } else {
